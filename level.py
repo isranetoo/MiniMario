@@ -1,7 +1,7 @@
 import pygame
 from settings import *
 from player import Player
-from tile import Tile
+from tile import Tile, criar_chao_com_arbusto
 from enemy import Enemy
 from items import Coin, Mushroom
 from camera import CameraGroup
@@ -41,8 +41,8 @@ class Level:
             '       C C C     C C        ',
             '     E         M            ',
             '               C  E         ',
-            'GGGGGGGGGGGGGGGGGGGGGGGGGGGG',
-            'GGGGGGGGGGGGGGGGGGGGGGGGGGGG'
+            'GGGGGGGGGGGGGGGGGGGGGGGGGGG',
+            'ggggggggggggggggggggggggggg'
         ]
         
         # Criar o nível a partir do layout
@@ -51,12 +51,12 @@ class Level:
                 x = col_index * TILE_SIZE
                 y = row_index * TILE_SIZE
                 
-                if cell == 'G':  # Bloco de chão
+                if cell == 'G':  # Bloco de chão com arbusto
+                    criar_chao_com_arbusto((x, y), TILE_SIZE, [self.visible_sprites, self.obstacle_sprites])
+                elif cell == 'g':  # Bloco de chão sem arbusto
                     Tile((x, y), TILE_SIZE, [self.visible_sprites, self.obstacle_sprites], 'ground')
                 elif cell == 'B':  # Bloco de tijolo
                     Tile((x, y), TILE_SIZE, [self.visible_sprites, self.obstacle_sprites], 'brick')
-                elif cell == '?':  # Bloco de interrogação
-                    Tile((x, y), TILE_SIZE, [self.visible_sprites, self.obstacle_sprites], 'question')
                 elif cell == 'E':  # Inimigo
                     Enemy((x, y), TILE_SIZE, [self.visible_sprites, self.enemy_sprites], self.obstacle_sprites)
                 elif cell == 'C':  # Moeda
