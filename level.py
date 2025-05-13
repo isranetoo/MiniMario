@@ -30,19 +30,19 @@ class Level:
     def create_level(self):
         # Formato do nível
         level_layout = [
-            '                            ',
-            '                            ',
-            '                            ',
-            '                            ',
-            '                            ',
-            '                            ',
-            '                            ',
-            '         ?   ?  B           ',
-            '       C C C     C C        ',
-            '     E         M            ',
-            '               C  E         ',
-            'GGGGGGGGGGGGGGGGGGGGGGGGGGG',
-            'ggggggggggggggggggggggggggg'
+            '                                   ',
+            '                                   ',
+            '                                   ',
+            '                                   ',
+            '                                   ',
+            '                                   ',
+            '                                   ',
+            '         ?   ?  B                  ',
+            '       C C C     C C               ',
+            '     E         M                   ',
+            '               C  E                ',
+            'gGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG',
+            'gggggggggggggggggggggggggggggggggg'
         ]
         
         # Criar o nível a partir do layout
